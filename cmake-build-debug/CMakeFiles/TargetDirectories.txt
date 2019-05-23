@@ -1,0 +1,3 @@
+C:/Users/Victor/source/repos/life/cmake-build-debug/CMakeFiles/life.dir
+C:/Users/Victor/source/repos/life/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Victor/source/repos/life/cmake-build-debug/CMakeFiles/rebuild_cache.dir
