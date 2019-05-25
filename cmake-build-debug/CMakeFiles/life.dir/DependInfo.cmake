@@ -4,12 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Victor/source/repos/life/src/main.cpp" "C:/Users/Victor/source/repos/life/cmake-build-debug/CMakeFiles/life.dir/src/main.cpp.obj"
+  "C:/Users/Victor/source/repos/Life-Game-master/src/main.cpp" "C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/CMakeFiles/life.dir/src/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../include"
   )
 
 # Targets to which this target links.
