@@ -9,7 +9,9 @@ BLACK BLUE CRIMSON DARK_GREEN DEEP_SKY_BLUE DODGER_BLUE
 GREEN LIGHT_BLUE LIGHT_GREY LIGHT_YELLOW RED STEEL_BLUE
 WHITE YELLOW*/
 
-struct Dot
+#include <string.h> //std::string
+
+struct Point
 {
     int x, y;
 };
@@ -22,13 +24,10 @@ public:
     ///Basic constructor.
     Life();
 
-    ///Constructor with params.
-    Life(int lin, int col);
-
     //=== DESTRUCTORS ===\\
 
     ///Basic destructor
-    ~Life();
+    ~Life() = default;
 
     //=== METHODS GAME LOOP ===\\
 
@@ -50,7 +49,7 @@ public:
     //=== METHODS CELL ===\\
 
     ///Set an alive cel on coord(x,y).
-    void set_alive(Dot const coord);
+    void set_alive(Point const coord);
 
     ///Returns if the generation is stable or not.
     bool stable();
@@ -58,14 +57,17 @@ public:
     ///Returns if the generation is extinct or nor
     bool extinct();
 
-private:
-    int H;           //!< Height
-    int W;           //!< Width
-    int *M;          //!< Number of lines the matrix have
-    int *N;          //!< Number of columns the matrix have
-    int current_gen; //!< Current generation number.
-    int max_gen;     //!< Max generations can be born.
-    bool changed;
+    int H;                   //!< Height
+    int W;                   //!< Width
+    int *lin;                  //!< Lines of the matrix with max size = width.
+    int *col;                  //!< Columns of the matrix with max size = Height.
+    int current_gen;         //!< Current generation number.
+    int max_gen;             //!< Max number of generations to simulate.
+    int fps;                 //!< How many generations are show per second on the terminal.It only changes how many generations are show on terminal, doesnt affect if output is a file.
+    int blocksize;           //!< Pixel size of a cell. DEFAULT 5.
+    std::string bkgcolor;    //!< Color name of the background. Default GREEN.
+    std::string alivecolor;  //!< Color name of the background. Default RED.
+    bool changed;            //!< If generation changed or not.
 };
 
 #include "life.inl"

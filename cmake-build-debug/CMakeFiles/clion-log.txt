@@ -1,4 +1,4 @@
-"D:\Program Files (x86)\CLion 2019.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\Victor\source\repos\Life-Game-master
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/victor/Repos/Life-Game-master
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug
+-- Build files have been written to: /Users/victor/Repos/Life-Game-master/cmake-build-debug

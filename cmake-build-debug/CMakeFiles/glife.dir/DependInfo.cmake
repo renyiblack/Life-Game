@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/victor/Repos/Life-Game-master/src/main.cpp" "/Users/victor/Repos/Life-Game-master/cmake-build-debug/CMakeFiles/life.dir/src/main.cpp.o"
+  "/Users/victor/Repos/Life-Game-master/src/main.cpp" "/Users/victor/Repos/Life-Game-master/cmake-build-debug/CMakeFiles/glife.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

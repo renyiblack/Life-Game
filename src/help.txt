@@ -1,0 +1,21 @@
+Usage: glife [<options>] <input_cfg_file>
+Simulation options:
+  --help
+Print this help text.
+Specify directory where output images are written to.
+Maximum number of generations to simulate.
+Number of generations presented per second.
+Pixel size of a cell. Default = 5.
+Color name for the background. Default GREEN.
+--imgdir <path>
+--maxgen <num>
+--fps <num>
+--blocksize <num>
+--bkgcolor <color>
+--alivecolor <color> Color name for representing alive cells. Default RED.
+--outfile <filename> Write the text representation of the simulation
+                       to the given filename.
+Available colors are:
+  BLACK BLUE CRIMSON DARK_GREEN DEEP_SKY_BLUE DODGER_BLUE
+  GREEN LIGHT_BLUE LIGHT_GREY LIGHT_YELLOW RED STEEL_BLUE
+  WHITE YELLOW

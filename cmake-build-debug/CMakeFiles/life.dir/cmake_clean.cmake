@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/life.dir/src/main.cpp.obj"
+  "CMakeFiles/life.dir/src/main.cpp.o"
   "life.pdb"
-  "life.exe"
-  "life.exe.manifest"
-  "liblife.dll.a"
+  "life"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,5 +1,6 @@
 #include <iostream>
-#include <string>    // std::string
+#include <fstream>
+#include <sstream>
 #include "life.h"
 
 //TODO CHANGE NAME TO GLIFE
@@ -7,55 +8,131 @@
 
 void render_welcome_msg(const Life& state)
 {
-    std::cout << "Some random welcome message!";
+    std::cout << "\n\nSome random welcome message!\n\n";
 }
 
-int main( int argc, char *argv[] )
+int main( int argc, char **argv )
 {
     Life state;
-    std::string argstr(*argv);
+    std::string line;
+    std::string aux;
 
-    std::cout << argstr;
-    /*
-    if (argstr.find("--h") != std::string::npos )
-        //TODO PRINTS HELP
-        ;
-    if (memcmp("--imgdir", argv, 7))
-        //TODO
-        ;
-    if (memcmp("--maxgen", argv, 7))
-        //TODO /IF NOT INFORMED RUN UNTIL STABILITY OR EXTINCTION IS MEET
-        ;
-    if (memcmp("--fps", argv, 4))
-        //TODO /IT ONLY CHANGES HOW MANY GENERATIONS ARE SHOW ON TERMINAL, DOESN'T AFFECT IF OUTPUT IS FILES
-        ;
-    if (memcmp("--blocksize", argv, 10))
-        //TODO /DEFAULT 5
-        ;
-    if (memcmp("--bkgcolor", argv, 9))
-        //TODO /DEFAULT GREEN
-        ;
-    if (memcmp("--alivecolor", argv, 11))
-        //TODO /DEFAULT GREEN
-        ;
+    std::cout << "You have entered " << argc
+         << " arguments:" << "\n";
 
-    if (memcmp("--outfile", argv, 8))
-        //TODO
-        ;
+    for (int i = 0; i < argc; ++i)
+        std::cout << argv[i] << "\n";
+
+    for (int i = 0; i < argc; ++i) {
+        if (strstr(*(argv + i), "--h") != nullptr)
+        {
+            std::cout << "\n\n\n\n\n\n\n\n\n\n";
+            std::ifstream help;
+            help.open ("../src/help.txt", std::ifstream::in);
+            if (help.is_open())
+            {
+                while (getline(help, line))
+                {
+                    std::cout<< line << '\n';
+                }
+                help.close();
+            }
+        }
+
+        if (strstr(*(argv + i), "--imgdir") != nullptr)
+        {
+            i++;
+
+            std::ofstream imgdir;
+            imgdir.open(*(argv + i), std::ifstream::out);
+
+            if(!imgdir.is_open())
+            {
+                std::cout << "Unable to open file.\n";
+            }
+
+            std::cout << *(argv + i) << "\n";
+
+            imgdir.close();
+        }
+
+        ///IF NOT INFORMED RUN UNTIL STABILITY OR EXTINCTION IS MEET
+        if (strstr(*(argv + i), "--maxgen") != nullptr)
+        {
+            i++;
+
+            state.max_gen = atoi(*(argv + i));
+
+            std::cout << state.max_gen << "\n";
+
+        }
+
+        if (strstr(*(argv + i), "--fps") != nullptr)
+        {
+            i++;
+
+            state.fps = atoi(*(argv + i));
+
+            std::cout << state.fps << "\n";
+        }
+
+        if (strstr(*(argv + i), "--blocksize") != nullptr)
+        {
+            i++;
+
+            state.blocksize = atoi(*(argv + i));
+
+            std::cout << state.blocksize << "\n";
+        }
+
+        if (strstr(*(argv + i), "--bkgcolor") != nullptr)
+        {
+            i++;
+
+            state.bkgcolor = *(argv + i);
+
+            std::cout << state.bkgcolor << "\n";
+        }
+
+        if (strstr(*(argv + i), "--alivecolor") != nullptr)
+        {
+            i++;
+
+            state.alivecolor = *(argv + i);
+
+            std::cout << state.alivecolor << "\n";
+        }
+
+        if (strstr(*(argv + i), "--outfile") != nullptr)
+        {
+            i++;
+
+            std::ofstream outfile;
+            outfile.open(*(argv + i), std::ifstream::out);
+
+            if(!outfile.is_open())
+            {
+                std::cout << "Unable to open file.\n";
+            }
+
+            std::cout << *(argv + i) << "\n";
+
+            outfile.close();
+        }
+    }
+
+    //TODO OPEN FILE
 
     render_welcome_msg( state );
 
-    //TODO OPEN FILE AND INITIALIZE STATE
-
-    // The Game Loop.
-    while( !state.over )
+    while( !state.over() )
     {
-        state.process_events;
-        state.update;
-        state.render;
+        state.process_events();
+        state.update();
+        state.render();
     }
 
     //send to log file?
-*/
+
     return EXIT_SUCCESS;
 }

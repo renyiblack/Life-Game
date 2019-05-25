@@ -2,25 +2,15 @@
 
 Life::Life()
 {
-    H = 0;
-    W = 0;
+    H = 5;
+    W = 5;
     current_gen = 0;
     max_gen = 0;
+    fps = 1;
+    blocksize = 5;
+    bkgcolor = "GREEN";
+    alivecolor = "RED";
     changed = true;
-}
-
-Life::Life(int lin, int col)
-{
-    W = lin;
-    H = col;
-    changed = true;
-}
-
-//=== DESTRUCTORS ===\\
-
-Life::~Life()
-{
-    //empty
 }
 
 //=== METHODS GAME LOOP ===\\
@@ -50,7 +40,7 @@ void Life::render()
 
 //=== METHODS CELL ===\\
 
-void Life::set_alive(Dot const coord)
+void Life::set_alive(Point const coord)
 {
 
 }

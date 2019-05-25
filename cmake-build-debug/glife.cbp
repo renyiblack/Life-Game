@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6"/>
 	<Project>
-		<Option title="life"/>
+		<Option title="glife"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
 		<Option virtualFolders="CMake Files\;"/>
@@ -37,8 +37,8 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="life">
-				<Option output="/Users/victor/Repos/Life-Game-master/cmake-build-debug/life" prefix_auto="0" extension_auto="0"/>
+			<Target title="glife">
+				<Option output="/Users/victor/Repos/Life-Game-master/cmake-build-debug/glife" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/victor/Repos/Life-Game-master/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -53,14 +53,14 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 life"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 glife"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="life/fast">
-				<Option output="/Users/victor/Repos/Life-Game-master/cmake-build-debug/life" prefix_auto="0" extension_auto="0"/>
+			<Target title="glife/fast">
+				<Option output="/Users/victor/Repos/Life-Game-master/cmake-build-debug/glife" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/victor/Repos/Life-Game-master/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -75,7 +75,7 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 life/fast"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 glife/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -83,7 +83,7 @@
 			</Target>
 		</Build>
 		<Unit filename="/Users/victor/Repos/Life-Game-master/src/main.cpp">
-			<Option target="life"/>
+			<Option target="glife"/>
 		</Unit>
 		<Unit filename="/Users/victor/Repos/Life-Game-master/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

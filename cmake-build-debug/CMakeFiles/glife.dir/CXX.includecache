@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 ../include/life.h
+string.h
+-
 life.inl
 ../include/life.inl
 
@@ -15,7 +17,9 @@ life.inl
 /Users/victor/Repos/Life-Game-master/src/main.cpp
 iostream
 -
-string
+fstream
+-
+sstream
 -
 life.h
 /Users/victor/Repos/Life-Game-master/src/life.h
