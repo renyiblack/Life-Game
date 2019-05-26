@@ -10,6 +10,7 @@ GREEN LIGHT_BLUE LIGHT_GREY LIGHT_YELLOW RED STEEL_BLUE
 WHITE YELLOW*/
 
 #include <string.h> //std::string
+#include <vector>
 
 struct Point
 {
@@ -59,14 +60,14 @@ public:
 
     int H;                   //!< Height
     int W;                   //!< Width
-    int *lin;                  //!< Lines of the matrix with max size = width.
-    int *col;                  //!< Columns of the matrix with max size = Height.
+    std::vector<char> matrix; //!< Matrix stored as a vector.
     int current_gen;         //!< Current generation number.
     int max_gen;             //!< Max number of generations to simulate.
     int fps;                 //!< How many generations are show per second on the terminal.It only changes how many generations are show on terminal, doesnt affect if output is a file.
     int blocksize;           //!< Pixel size of a cell. DEFAULT 5.
     std::string bkgcolor;    //!< Color name of the background. Default GREEN.
     std::string alivecolor;  //!< Color name of the background. Default RED.
+    char c;                  //!< Character that indicates alive.
     bool changed;            //!< If generation changed or not.
 };
 

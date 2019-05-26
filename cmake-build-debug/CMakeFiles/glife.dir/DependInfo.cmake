@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/victor/Repos/Life-Game-master/src/main.cpp" "/Users/victor/Repos/Life-Game-master/cmake-build-debug/CMakeFiles/glife.dir/src/main.cpp.o"
+  "C:/Users/Victor/source/repos/Life-Game-master/src/main.cpp" "C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/CMakeFiles/glife.dir/src/main.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

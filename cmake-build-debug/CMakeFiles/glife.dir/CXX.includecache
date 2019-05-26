@@ -9,12 +9,14 @@
 ../include/life.h
 string.h
 -
+vector
+-
 life.inl
 ../include/life.inl
 
 ../include/life.inl
 
-/Users/victor/Repos/Life-Game-master/src/main.cpp
+C:/Users/Victor/source/repos/Life-Game-master/src/main.cpp
 iostream
 -
 fstream
@@ -22,5 +24,5 @@ fstream
 sstream
 -
 life.h
-/Users/victor/Repos/Life-Game-master/src/life.h
+C:/Users/Victor/source/repos/Life-Game-master/src/life.h
 
