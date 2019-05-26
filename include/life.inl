@@ -4,6 +4,7 @@ Life::Life()
 {
     H = 5;
     W = 5;
+    matrix.reserve(H*W);
     current_gen = 0;
     max_gen = 0;
     fps = 1;
@@ -36,6 +37,16 @@ void Life::update()
 void Life::render()
 {
     //do something
+}
+
+void Life::print()
+{
+    for(int x = 0; x < H ;x++ ) {
+        for (int y = 0; y < W; ++y) {
+            std::cout << matrix.at(x * W + y);
+        }
+        std::cout << "\n";
+    }
 }
 
 //=== METHODS CELL ===\\
