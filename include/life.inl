@@ -4,6 +4,7 @@ Life::Life()
 {
     H = 5;
     W = 5;
+    matrix.reserve(H*W);
     current_gen = 0;
     max_gen = 0;
     fps = 1;
