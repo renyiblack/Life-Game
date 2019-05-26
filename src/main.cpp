@@ -15,15 +15,15 @@ int main( int argc, char **argv )
 {
     Life state;
     std::string line;
-    std::string aux;
+    //std::string aux;
 
     std::cout << "You have entered " << argc
          << " arguments:" << "\n";
 
-    for (int i = 0; i < argc; ++i)
+    for (int i = 1; i < argc; ++i)
         std::cout << argv[i] << "\n";
 
-    for (int i = 0; i < argc; ++i) {
+    for (int i = 1; i < argc; ++i) {
         if (strstr(*(argv + i), "--h") != nullptr)
         {
             std::cout << "\n\n\n\n\n\n\n\n\n\n";
@@ -39,7 +39,7 @@ int main( int argc, char **argv )
             }
         }
 
-        if (strstr(*(argv + i), "--imgdir") != nullptr)
+        else if (strstr(*(argv + i), "--imgdir") != nullptr)
         {
             i++;
 
@@ -57,7 +57,7 @@ int main( int argc, char **argv )
         }
 
         ///IF NOT INFORMED RUN UNTIL STABILITY OR EXTINCTION IS MEET
-        if (strstr(*(argv + i), "--maxgen") != nullptr)
+        else if (strstr(*(argv + i), "--maxgen") != nullptr)
         {
             i++;
 
@@ -67,7 +67,7 @@ int main( int argc, char **argv )
 
         }
 
-        if (strstr(*(argv + i), "--fps") != nullptr)
+        else if (strstr(*(argv + i), "--fps") != nullptr)
         {
             i++;
 
@@ -76,7 +76,7 @@ int main( int argc, char **argv )
             std::cout << state.fps << "\n";
         }
 
-        if (strstr(*(argv + i), "--blocksize") != nullptr)
+        else if (strstr(*(argv + i), "--blocksize") != nullptr)
         {
             i++;
 
@@ -85,7 +85,7 @@ int main( int argc, char **argv )
             std::cout << state.blocksize << "\n";
         }
 
-        if (strstr(*(argv + i), "--bkgcolor") != nullptr)
+        else if (strstr(*(argv + i), "--bkgcolor") != nullptr)
         {
             i++;
 
@@ -94,7 +94,7 @@ int main( int argc, char **argv )
             std::cout << state.bkgcolor << "\n";
         }
 
-        if (strstr(*(argv + i), "--alivecolor") != nullptr)
+        else if (strstr(*(argv + i), "--alivecolor") != nullptr)
         {
             i++;
 
@@ -103,7 +103,7 @@ int main( int argc, char **argv )
             std::cout << state.alivecolor << "\n";
         }
 
-        if (strstr(*(argv + i), "--outfile") != nullptr)
+        else if (strstr(*(argv + i), "--outfile") != nullptr)
         {
             i++;
 
@@ -119,9 +119,79 @@ int main( int argc, char **argv )
 
             outfile.close();
         }
+        ///Read from a file and saves it's values on state.matrix
+        else {
+            std::ifstream dat;
+            dat.open(*(argv + i), std::ifstream::in);
+
+            if (!dat.is_open()) {
+                std::cout << "Unable to open file.\n";
+            }
+            std::getline(dat, line);
+            std::stringstream ss;
+
+            /* Storing the whole string into string stream */
+            ss << line;
+
+            /* Running loop till the end of the stream */
+            std::string temp;
+            int found;
+            for (int cont = 0; !ss.eof(); cont++) {
+                /* extracting word by word from stream */
+                ss >> temp;
+
+                /* Checking the given word is integer or not */
+                if (std::stringstream(temp) >> found) {
+                    if (cont == 0) {
+                        state.H = found;
+                        std::cout << found << " ";
+                    }
+                    if (cont == 1) {
+                        state.W = found;
+                        std::cout << found << "\n";
+                    }
+                }
+                /* To save from space at the end of string */
+                temp = "";
+            }
+
+            state.matrix.resize(state.H * state.W);
+            dat >> state.c;
+            std::getline(dat, line);
+
+            for (int height = 0; height < state.H; ++height)
+            {
+                std::getline(dat, line);
+                std::cout << "\n" << height << " - ";
+                for (int pos = 0; pos < line.size(); ++pos)
+                {
+                    std::cout << pos;
+                    if (line.at(pos) == '\n')
+                    {
+                        if (pos < state.W)
+                        {
+                            for (int k = line.size(); k < state.W; ++k)
+                            {
+                                std::cout << k;
+                                state.matrix.at(height * state.W + k) = '.';
+                            }
+                        }
+                    }
+                    else
+                    {
+                        state.matrix[height * state.W + pos] = line.at(pos);
+                    }
+
+                }
+            }
+
+            std::cout << "\n" << *(argv + i) << "\n";
+
+            dat.close();
+        }
     }
 
-    //TODO OPEN FILE
+    state.print();
 
     render_welcome_msg( state );
 
