@@ -2,7 +2,6 @@
 #define LIFE_LIFE_H
 ///Developers:
 /// Victor Ângelo Graça Morais
-/// Heitor Pereira Paiva
 
 /*Available colors are:
 BLACK BLUE CRIMSON DARK_GREEN DEEP_SKY_BLUE DODGER_BLUE
@@ -13,6 +12,9 @@ WHITE YELLOW*/
 #include <vector>
 #include "../include/lodepng.h"
 #include "../include/canvas.h"
+#include <iostream>
+#include <fstream>
+#include <sstream>
 
 class Cell {
 private:
@@ -81,14 +83,10 @@ public:
     void setalive(const std::vector<life::Point2>&);
 
     ///Returns if the generation is stable or not.
-    int stable();
+    void stable();
 
     ///Returns if the generation is extinct or nor
-    bool extinct();
-
-    std::vector<life::Point2> getalives();
-
-    //std::vector<std::vector<life::Point2>> *getlifes() const { return gens; }
+    void extinct();
 
 
     int height;                                  //!< Height
@@ -101,8 +99,15 @@ public:
     std::string bkgcolor;                        //!< Color name of the background. Default GREEN.
     std::string alivecolor;                      //!< Color name of the background. Default RED.
     char symbol;                                 //!< Character that indicates alive.
-    std::vector<std::vector<life::Point2>> *gens; //!<Saves gen log.
+    std::vector<std::vector<Cell>> gens;         //!< Saves gen log.
+    bool gameover;                               //!< Records if game is over or not.
 };
+
+bool save_ppm3( const unsigned char * data, size_t w, size_t h, size_t d,  const std::string & file_name_ );
+
+void encode_png(const char* filename, const unsigned char * image, unsigned width, unsigned height);
+
+void render_welcome_msg(const Life& state);
 
 #include "life.inl"
 
