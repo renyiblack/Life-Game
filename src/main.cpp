@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include "../include/lodepng.h"
+#include "../include/canvas.h"
 #include "life.h"
 
 //TODO CHANGE NAME TO GLIFE
@@ -11,11 +13,51 @@ void render_welcome_msg(const Life& state)
     std::cout << "\n\nSome random welcome message!\n\n";
 }
 
+/// Saves an image as a **ascii** PPM file.
+bool save_ppm3( const unsigned char * data, size_t w, size_t h, size_t d,  const std::string & file_name_ )
+{
+    std::ofstream ofs_file( file_name_, std::ios::out  );
+    if ( not ofs_file.is_open() )
+        return false;
+
+    ofs_file << "P3\n"
+             << w << " " << h << "\n"
+             << "255\n";
+
+    size_t i{0};
+    while ( i < (w*h*d) )
+    {
+        // depth traversal, usually 3.
+        for( auto id{0u} ; id < 3 ; id++ )
+            ofs_file << (int) *(data + i++ ) << " ";
+        ofs_file << std::endl;
+        i++; // to skip alpha channel.
+    }
+
+    // Did it not fail?
+    auto result = not ofs_file.fail();
+
+    ofs_file.close();
+
+    return result;
+}
+
+// Example 1
+// Encode from raw pixels to disk with a single function call
+// The image argument has width * height RGBA pixels or width * height * 4 bytes
+void encode_png(const char* filename, const unsigned char * image, unsigned width, unsigned height)
+{
+    //Encode the image
+    unsigned error = lodepng::encode(filename, image, width, height);
+
+    //if there's an error, display it
+    if(error) std::cout << "encoder error " << error << ": "<< lodepng_error_text(error) << std::endl;
+}
+
 int main( int argc, char **argv )
 {
     Life state;
     std::string line;
-    //std::string aux;
 
     std::cout << "You have entered " << argc
          << " arguments:" << "\n";
@@ -143,11 +185,11 @@ int main( int argc, char **argv )
                 /* Checking the given word is integer or not */
                 if (std::stringstream(temp) >> found) {
                     if (cont == 0) {
-                        state.H = found;
+                        state.height = found;
                         std::cout << found << " ";
                     }
                     if (cont == 1) {
-                        state.W = found;
+                        state.width = found;
                         std::cout << found << "\n";
                     }
                 }
@@ -155,46 +197,73 @@ int main( int argc, char **argv )
                 temp = "";
             }
 
-            state.matrix.resize(state.H * state.W);
-            dat >> state.c;
+            dat >> state.symbol;
             std::getline(dat, line);
 
-            for (int height = 0; height < state.H; ++height)
-            {
-                std::getline(dat, line);
-                std::cout << "\n" << height << " - ";
-                for (int pos = 0; pos < line.size(); ++pos)
-                {
-                    std::cout << pos;
-                    if (line.at(pos) == '\n')
-                    {
-                        if (pos < state.W)
-                        {
-                            for (int k = line.size(); k < state.W; ++k)
-                            {
-                                std::cout << k;
-                                state.matrix.at(height * state.W + k) = '.';
-                            }
-                        }
-                    }
-                    else
-                    {
-                        state.matrix[height * state.W + pos] = line.at(pos);
-                    }
+            std::vector<life::Point2> alives;
 
+            for(auto l=0; l<state.height; l++) {
+                std::getline(dat, line);
+
+                for (auto c = 0; c < line.size(); c++) {
+                    if (c ==state.width)
+                    {
+                        break;
+                    }
+                    if (line.at(c) == state.symbol)
+                    {
+                        alives.push_back(life::Point2(c, l));
+                    }
                 }
             }
 
-            std::cout << "\n" << *(argv + i) << "\n";
-
             dat.close();
+
+            state = Life{state.height, state.width, state.symbol};
+
+            state.setalive(alives);
         }
     }
 
-    state.print();
+    const char* filename = "test.png";
+
+    //generate some image
+    unsigned w = state.matrix[0].size() , h = state.matrix.size();//WORKS ON w=20 h=15 bl=40 (800x600); w=2 h=2 bl=2 (4x4); w=48 h=27 bl=40 (1920x1080)
+    short block_size = state.blocksize;
+
+    life::Canvas image( w, h, block_size );
 
     render_welcome_msg( state );
 
+    std::cout<<state;
+
+    for (auto i = 0; i < state.matrix.size(); i++) {
+        for (auto j = 0; j < state.matrix[0].size(); j++) {
+            if (state.matrix[i][j].isalive())
+                image.pixel(life::Point2(j, i), life::RED);
+            else
+                image.pixel(life::Point2(j, i), life::GREEN);
+        }
+    }
+
+
+
+    encode_png(filename, image.pixels(), image.width(), image.height() );
+    save_ppm3( image.pixels(), image.width(), image.height(), 4, "test.ppm");
+
+    /*
+    state.process_events();
+    std::cout<<state;
+    state.process_events();
+    std::cout<<state;
+    state.process_events();
+    std::cout<<state;
+    state.process_events();
+    std::cout<<state;
+    state.process_events();
+    std::cout<<state;
+*/
+//TODO FINISH GAME LOOP
     while( !state.over() )
     {
         state.process_events();

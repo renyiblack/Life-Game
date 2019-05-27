@@ -47,7 +47,7 @@ namespace life {
                 : m_width{w*bs}, m_height{h*bs}, m_block_size{ bs }
         {
             // Remember to adjust the virtual size to real dimensions.
-            m_pixels.resize( m_width  * m_block_size * m_height  * m_block_size * image_depth);
+            m_pixels.resize( m_width  * m_height  * image_depth);
         }
 
         /// Destructor.
@@ -58,35 +58,13 @@ namespace life {
 
         //=== Special members
         /// Copy constructor.
-        Canvas( const Canvas &it )
-        {
-            *this = it;
-        }
+        Canvas( const Canvas & );
         /// Assignment operator.
-        Canvas & operator=( const Canvas &it )
-        {
-            m_width =  it.m_width;
-            m_height = it.m_height;
-            m_block_size = it.m_block_size;
-            m_pixels = it.m_pixels;
-
-            return *this;
-        }
+        Canvas & operator=( const Canvas & );
         /// Move constructor.
-        Canvas( Canvas && clone )
-        {
-            *this = clone;
-        }
+        Canvas( Canvas && clone );
         /// Move assignment operator.
-        Canvas & operator=( Canvas && move)
-        {
-            m_width =  move.m_width;
-            m_height = move.m_height;
-            m_block_size = move.m_block_size;
-            m_pixels = move.m_pixels;
-
-            return *this;
-        }
+        Canvas & operator=( Canvas && );
 
         //=== Members
         /// Clear the canvas with black color.
@@ -100,65 +78,20 @@ namespace life {
         /// Set the color of a pixel on the canvas.
         void pixel( const Point2& p,  const Color& c) //redo
         {
-            int offset = (p.x * m_block_size * image_depth) + (p.y * m_width * m_block_size * image_depth);
-
-            for(size_t j = 0; j < (m_block_size * m_block_size); j++)
+            for ( long int y = p.y * m_block_size; y < p.y * m_block_size + m_block_size; y++ )
             {
-                int i = 0;
-
-                for (; i < m_block_size * image_depth; i = i + image_depth)
+                for ( long int x = p.x * m_block_size; x < p.x * m_block_size + m_block_size; x++ )
                 {
-                    m_pixels[offset + i] = c.channels[0];
-                    m_pixels[offset + i + 1] = c.channels[1];
-                    m_pixels[offset + i + 2] = c.channels[2];
-                    m_pixels[offset + i + 3] = 255;
+                    m_pixels[ y * m_width * image_depth + x * image_depth ] = c.channels[0];
+                    m_pixels[ y * m_width * image_depth + x * image_depth + 1 ] = c.channels[1];
+                    m_pixels[ y * m_width * image_depth + x * image_depth + 2 ] = c.channels[2];
+                    m_pixels[ y * m_width * image_depth + x * image_depth + 3 ] = 255;
                 }
-
-                offset = offset + i + m_block_size * image_depth;
             }
-            /*
-                //16
-            m_pixels[offset + 16] = c.channels[0];
-            m_pixels[offset + 16 + 1] = c.channels[1];
-            m_pixels[offset + 16 + 2] = c.channels[2];
-            m_pixels[offset + 16 + 3] = 255;
-            m_pixels[offset + 20] = c.channels[0];
-            m_pixels[offset + 20 + 1] = c.channels[1];
-            m_pixels[offset + 20 + 2] = c.channels[2];
-            m_pixels[offset + 20 + 3] = 255;
-            //32
-            m_pixels[offset + 32] = c.channels[0];
-            m_pixels[offset + 32 + 1] = c.channels[1];
-            m_pixels[offset + 32 + 2] = c.channels[2];
-            m_pixels[offset + 32 + 3] = 255;
-            m_pixels[offset + 36] = c.channels[0];
-            m_pixels[offset + 36 + 1] = c.channels[1];
-            m_pixels[offset + 36 + 2] = c.channels[2];
-            m_pixels[offset + 36 + 3] = 255;
-            //48
-            m_pixels[offset + 48] = c.channels[0];
-            m_pixels[offset + 48 + 1] = c.channels[1];
-            m_pixels[offset + 48 + 2] = c.channels[2];
-            m_pixels[offset + 48 + 3] = 255;
-            m_pixels[offset + 52] = c.channels[0];
-            m_pixels[offset + 52 + 1] = c.channels[1];
-            m_pixels[offset + 52 + 2] = c.channels[2];
-            m_pixels[offset + 52 + 3] = 255;
-*/
+
         }
         /// Get the pixel color from the canvas.
-        Color pixel( const Point2& p) const
-        {
-            int pos = p.x * m_block_size * image_depth + p.y * m_height * m_block_size * image_depth;
-
-            Color c;
-
-            c.channels[0] = m_pixels.at(pos);
-            c.channels[1] = m_pixels.at(pos + 1);
-            c.channels[2] = m_pixels.at(pos + 2);
-
-            return c;
-        }
+        Color pixel( const Point2& p) const;
 
         //=== Attribute accessors members.
         /// Get the canvas width.

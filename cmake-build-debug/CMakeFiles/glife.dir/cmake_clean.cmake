@@ -1,9 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/glife.dir/src/main.cpp.obj"
+  "CMakeFiles/glife.dir/src/main.cpp.o"
+  "CMakeFiles/glife.dir/src/lodepng.cpp.o"
   "glife.pdb"
-  "glife.exe"
-  "glife.exe.manifest"
-  "libglife.dll.a"
+  "glife"
 )
 
 # Per-language clean rules from dependency scanning.

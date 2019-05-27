@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 11)
 
 include_directories( include )
 
-add_executable(glife src/main.cpp)
+add_executable(glife src/main.cpp src/lodepng.cpp)

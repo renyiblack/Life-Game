@@ -8,84 +8,87 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug"/>
+				<Option working_dir="/Users/victor/Repos/Life-Game-master/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="glife">
-				<Option output="C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/glife.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Users/Victor/source/repos/Life-Game-master/include"/>
-					<Add directory="D:/Program Files (x86)/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
-					<Add directory="D:/Program Files (x86)/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="D:/Program Files (x86)/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
-					<Add directory="D:/Program Files (x86)/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="D:/Program Files (x86)/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="D:/Program Files (x86)/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 glife"/>
-					<CompileFile command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="glife/fast">
-				<Option output="C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/glife.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Users/Victor/source/repos/Life-Game-master/include"/>
-					<Add directory="D:/Program Files (x86)/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
-					<Add directory="D:/Program Files (x86)/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="D:/Program Files (x86)/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
-					<Add directory="D:/Program Files (x86)/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="D:/Program Files (x86)/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="D:/Program Files (x86)/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 glife/fast"/>
-					<CompileFile command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug"/>
+				<Option working_dir="/Users/victor/Repos/Life-Game-master/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Program Files (x86)/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Victor/source/repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/victor/Repos/Life-Game-master/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="glife">
+				<Option output="/Users/victor/Repos/Life-Game-master/cmake-build-debug/glife" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/victor/Repos/Life-Game-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/victor/Repos/Life-Game-master/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 glife"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="glife/fast">
+				<Option output="/Users/victor/Repos/Life-Game-master/cmake-build-debug/glife" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/victor/Repos/Life-Game-master/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/victor/Repos/Life-Game-master/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 glife/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/victor/Repos/Life-Game-master/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Victor/source/repos/Life-Game-master/src/main.cpp">
+		<Unit filename="/Users/victor/Repos/Life-Game-master/src/lodepng.cpp">
 			<Option target="glife"/>
 		</Unit>
-		<Unit filename="C:/Users/Victor/source/repos/Life-Game-master/CMakeLists.txt">
+		<Unit filename="/Users/victor/Repos/Life-Game-master/src/main.cpp">
+			<Option target="glife"/>
+		</Unit>
+		<Unit filename="/Users/victor/Repos/Life-Game-master/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
