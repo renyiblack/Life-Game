@@ -17,7 +17,7 @@ Where the *.cpp files are located.
 
 To build this project you can compile via terminal going to the folder where the project is located, then compile the project using `g++ -Wall -std=c++11 -I include src/main.cpp src/lodepng.cpp glife`
 
-Or you can use cmake. 
+Or you can use cmake. This is the recomended method.
 
 Supposing you put Life-Game in the directory `${LIFE_DIR}`:
 
