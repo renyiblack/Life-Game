@@ -1,6 +1,10 @@
 # Life-Game
 Simulation of the life game, by Conway
 
+# Img
+
+The default path where the images created are saved.
+
 # Include
 
 Where the *.h and *.inl are located.
