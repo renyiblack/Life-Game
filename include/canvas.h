@@ -76,7 +76,7 @@ namespace life {
             }
         }
         /// Set the color of a pixel on the canvas.
-        void pixel( const Point2& p,  const Color& c) //redo
+        void pixel( const Point2& p,  const Color& c)
         {
             for ( long int y = p.y * m_block_size; y < p.y * m_block_size + m_block_size; y++ )
             {

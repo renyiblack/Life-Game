@@ -39,6 +39,8 @@ fstream
 -
 sstream
 -
+thread
+-
 life.inl
 ../include/life.inl
 

@@ -1,3 +1,6 @@
+///Developers:
+/// Victor Ângelo Graça Morais
+
 #include "life.h"
 
 int main( int argc, char **argv )
@@ -5,14 +8,17 @@ int main( int argc, char **argv )
     Life state;
     std::string line;
 
-    std::cout << "You have entered " << argc
-         << " arguments:" << "\n";
 
-    for (int i = 1; i < argc; ++i)
-        std::cout << argv[i] << "\n";
+//=== READING FROM TERMINAL ===\
 
-    for (int i = 1; i < argc; ++i) {
-        if (strstr(*(argv + i), "--h") != nullptr)
+
+    for (int i = 1; i < argc; i++)
+    {
+        if(argv[i][0] == 'B' and argv[i][2] == '/' and argv[i][3] == 'S')
+        {
+            state.rule = *(argv + i);
+        }
+        else if (strstr(*(argv + i), "--help") != nullptr)
         {
             std::cout << "\n\n\n\n\n\n\n\n\n\n";
             std::ifstream help;
@@ -26,120 +32,181 @@ int main( int argc, char **argv )
                 help.close();
             }
         }
-
         else if (strstr(*(argv + i), "--imgdir") != nullptr)
         {
             i++;
 
-            std::ofstream imgdir;
-            imgdir.open(*(argv + i), std::ifstream::out);
-
-            if(!imgdir.is_open())
-            {
-                std::cout << "Unable to open file.\n";
-            }
-
-            std::cout << *(argv + i) << "\n";
-
-            imgdir.close();
+            state.imgdir = *(argv + i);
         }
-
-        ///IF NOT INFORMED RUN UNTIL STABILITY OR EXTINCTION IS MEET
-        else if (strstr(*(argv + i), "--maxgen") != nullptr)
+        ///IF NOT INFORMED RUN UNTIL STABILITY OR EXTINCTION IS MET
+        else if (strstr(*argv, "--maxgen") != nullptr) ///DOESNT WORK
         {
             i++;
-
             state.max_gen = atoi(*(argv + i));
-
-            std::cout << state.max_gen << "\n";
-
         }
-
         else if (strstr(*(argv + i), "--fps") != nullptr)
         {
             i++;
 
             state.fps = atoi(*(argv + i));
-
-            std::cout << state.fps << "\n";
         }
-
         else if (strstr(*(argv + i), "--blocksize") != nullptr)
         {
             i++;
 
             state.blocksize = atoi(*(argv + i));
-
-            std::cout << state.blocksize << "\n";
         }
-
         else if (strstr(*(argv + i), "--bkgcolor") != nullptr)
         {
             i++;
 
-            state.bkgcolor = *(argv + i);
-
-            std::cout << state.bkgcolor << "\n";
+            if(strstr(*(argv + i), "BLACK") != nullptr)
+            {
+                state.bkgcolor = life::BLACK;
+            }
+            else if(strstr(*(argv + i), "CRIMSON") != nullptr)
+            {
+                state.bkgcolor = life::CRIMSON;
+            }
+            else if(strstr(*(argv + i), "DARK_GREEN") != nullptr)
+            {
+                state.bkgcolor = life::DARK_GREEN;
+            }
+            else if(strstr(*(argv + i), "DEEP_SKY_BLUE") != nullptr)
+            {
+                state.bkgcolor = life::DEEP_SKY_BLUE;
+            }
+            else if(strstr(*(argv + i), "DODGER_BLUE") != nullptr)
+            {
+                state.bkgcolor = life::DODGER_BLUE;
+            }
+            else if(strstr(*(argv + i), "GREEN") != nullptr)
+            {
+                state.bkgcolor = life::GREEN;
+            }
+            else if(strstr(*(argv + i), "LIGHT_BLUE") != nullptr)
+            {
+                state.bkgcolor = life::LIGHT_BLUE;
+            }
+            else if(strstr(*(argv + i), "LIGHT_GREY") != nullptr)
+            {
+                state.bkgcolor = life::LIGHT_GREY;
+            }
+            else if(strstr(*(argv + i), "LIGHT_YELLOW") != nullptr)
+            {
+                state.bkgcolor = life::LIGHT_YELLOW;
+            }
+            else if(strstr(*(argv + i), "RED") != nullptr)
+            {
+                state.bkgcolor = life::RED;
+            }
+            else if(strstr(*(argv + i), "STEEL_BLUE") != nullptr)
+            {
+                state.bkgcolor = life::STEEL_BLUE;
+            }
+            else if(strstr(*(argv + i), "WHITE") != nullptr)
+            {
+                state.bkgcolor = life::WHITE;
+            }
+            else if(strstr(*(argv + i), "YELLOW") != nullptr)
+            {
+                state.bkgcolor = life::YELLOW;
+            }
         }
-
         else if (strstr(*(argv + i), "--alivecolor") != nullptr)
         {
             i++;
 
-            state.alivecolor = *(argv + i);
-
-            std::cout << state.alivecolor << "\n";
+            if(strstr(*(argv + i), "BLACK") != nullptr)
+            {
+                state.alivecolor = life::BLACK;
+            }
+            else if(strstr(*(argv + i), "CRIMSON") != nullptr)
+            {
+                state.alivecolor = life::CRIMSON;
+            }
+            else if(strstr(*(argv + i), "DARK_GREEN") != nullptr)
+            {
+                state.alivecolor = life::DARK_GREEN;
+            }
+            else if(strstr(*(argv + i), "DEEP_SKY_BLUE") != nullptr)
+            {
+                state.alivecolor = life::DEEP_SKY_BLUE;
+            }
+            else if(strstr(*(argv + i), "DODGER_BLUE") != nullptr)
+            {
+                state.alivecolor = life::DODGER_BLUE;
+            }
+            else if(strstr(*(argv + i), "GREEN") != nullptr)
+            {
+                state.alivecolor = life::GREEN;
+            }
+            else if(strstr(*(argv + i), "LIGHT_BLUE") != nullptr)
+            {
+                state.alivecolor = life::LIGHT_BLUE;
+            }
+            else if(strstr(*(argv + i), "LIGHT_GREY") != nullptr)
+            {
+                state.alivecolor = life::LIGHT_GREY;
+            }
+            else if(strstr(*(argv + i), "LIGHT_YELLOW") != nullptr)
+            {
+                state.alivecolor = life::LIGHT_YELLOW;
+            }
+            else if(strstr(*(argv + i), "RED") != nullptr)
+            {
+                state.alivecolor = life::RED;
+            }
+            else if(strstr(*(argv + i), "STEEL_BLUE") != nullptr)
+            {
+                state.alivecolor = life::STEEL_BLUE;
+            }
+            else if(strstr(*(argv + i), "WHITE") != nullptr)
+            {
+                state.alivecolor = life::WHITE;
+            }
+            else if(strstr(*(argv + i), "YELLOW") != nullptr)
+            {
+                state.alivecolor = life::YELLOW;
+            }
         }
-
         else if (strstr(*(argv + i), "--outfile") != nullptr)
         {
             i++;
 
-            std::ofstream outfile;
-            outfile.open(*(argv + i), std::ifstream::out);
-
-            if(!outfile.is_open())
-            {
-                std::cout << "Unable to open file.\n";
-            }
-
-            std::cout << *(argv + i) << "\n";
-
-            outfile.close();
+            state.outfile = *(argv + i);
         }
         ///Read from a file and saves it's values on state.matrix
-        else {
+        else{
             std::ifstream dat;
             dat.open(*(argv + i), std::ifstream::in);
 
-            if (!dat.is_open()) {
+            if (!dat.is_open())
+            {
                 std::cout << "Unable to open file.\n";
             }
             std::getline(dat, line);
             std::stringstream ss;
 
-            /* Storing the whole string into string stream */
             ss << line;
 
-            /* Running loop till the end of the stream */
             std::string temp;
             int found;
-            for (int cont = 0; !ss.eof(); cont++) {
-                /* extracting word by word from stream */
+            for (int cont = 0; !ss.eof(); cont++)
+            {
                 ss >> temp;
 
-                /* Checking the given word is integer or not */
-                if (std::stringstream(temp) >> found) {
-                    if (cont == 0) {
+                if (std::stringstream(temp) >> found)
+                {
+                    if (cont == 0)
+                    {
                         state.height = found;
-                        std::cout << found << " ";
                     }
-                    if (cont == 1) {
+                    if (cont == 1)
+                    {
                         state.width = found;
-                        std::cout << found << "\n";
                     }
                 }
-                /* To save from space at the end of string */
                 temp = "";
             }
 
@@ -148,10 +215,12 @@ int main( int argc, char **argv )
 
             std::vector<life::Point2> alives;
 
-            for(auto l=0; l<state.height; l++) {
+            for(auto l=0; l<state.height; l++)
+            {
                 std::getline(dat, line);
 
-                for (auto c = 0; c < line.size(); c++) {
+                for (auto c = 0; c < line.size(); c++)
+                {
                     if (c ==state.width)
                     {
                         break;
@@ -171,19 +240,20 @@ int main( int argc, char **argv )
         }
     }
 
+
+    //=== THE GAME ===\\
+
+
     render_welcome_msg( state );
 
-    state.render();
-
+    state.render(); //Renders gen 1(first gen passed by file).
 
     while( !state.over() )
     {
-        state.process_events();
-        state.update();
-        state.render();
+        state.process_events(); //Kill, let live or create new cells.
+        state.update(); //Update simulation.
+        state.render(); //Drawn the images on files or terminal.
     }
-
-    //send to log file?
 
     return EXIT_SUCCESS;
 }
