@@ -43,6 +43,16 @@ The file provided by the user must follow **strictly** the following structure. 
 * This version still needs improvement when processing the generation, it doesn't properly update cells on the edge.
 * This version still needs improvement in the stable() function, it just compares the current generation and the previous one.
 
+# Bonus
+
+This program takes custom rules for evolution in the format `B3/S23`. 
+Ex.:
+
+    $./glife  virus.dat --fps 10 B3/23
+
 # Developer
 
-Victor Ângelo Graça Morais
+Victor Ângelo Graça Morais(git - https://github.com/bllackangell/Life-Game)
+
+
+ps.: This git will be private until the project due date is met.
